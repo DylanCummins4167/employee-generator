@@ -76,3 +76,8 @@ function viewAllEmployees(db) {
 function addDepartment(db, departmentName) {
   db.run('INSERT INTO departments (name) VALUES (?)', [departmentName]);
 }
+
+// Function to add a role
+function addRole(db, title, salary, departmentId) {
+  db.run('INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)', [title, salary, departmentId]);
+}
