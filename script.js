@@ -86,3 +86,8 @@ function addRole(db, title, salary, departmentId) {
 function addEmployee(db, firstName, lastName, roleId, managerId) {
   db.run('INSERT INTO employees (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)', [firstName, lastName, roleId, managerId]);
 }
+
+// Function to update an employee role
+function updateEmployeeRole(db, employeeId, newRoleId) {
+  db.run('UPDATE employees SET role_id = ? WHERE id = ?', [newRoleId, employeeId]);
+}
