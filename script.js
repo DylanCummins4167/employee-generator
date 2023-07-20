@@ -81,3 +81,8 @@ function addDepartment(db, departmentName) {
 function addRole(db, title, salary, departmentId) {
   db.run('INSERT INTO roles (title, salary, department_id) VALUES (?, ?, ?)', [title, salary, departmentId]);
 }
+
+// Function to add an employee
+function addEmployee(db, firstName, lastName, roleId, managerId) {
+  db.run('INSERT INTO employees (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)', [firstName, lastName, roleId, managerId]);
+}
