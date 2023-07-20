@@ -132,3 +132,12 @@ function main() {
           console.log("Department added successfully!");
         });
         break;
+ case '5':
+        rl.question("Enter the title of the role: ", title => {
+          rl.question("Enter the salary for the role: ", salary => {
+            rl.question("Enter the department id for the role: ", departmentId => {
+              addRole(db, title, parseFloat(salary), parseInt(departmentId));
+              console.log("Role added successfully!");
+            });
+          });
+        });
