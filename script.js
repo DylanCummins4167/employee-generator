@@ -42,3 +42,16 @@ function viewAllDepartments(db) {
     });
   });
 }
+
+// Function to view all roles
+function viewAllRoles(db) {
+  db.all(`
+    SELECT roles.id, title, salary, departments.name AS department
+    FROM roles JOIN departments ON roles.department_id = departments.id
+  `, [], (err, rows) => {
+    console.log("Roles:");
+    rows.forEach(row => {
+      console.log(`ID: ${row.id}, Title: ${row.title}, Salary: ${row.salary}, Department: ${row.department}`);
+    });
+  });
+}
