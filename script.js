@@ -170,3 +170,11 @@ break;
       default:
         console.log("Invalid option. Please try again.");
     }
+
+        showMenu();
+  });
+
+  showMenu();
+}
+
+main();
