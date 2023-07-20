@@ -32,3 +32,13 @@ function createTables(db) {
     )
   `);
 }
+
+// Function to view all departments
+function viewAllDepartments(db) {
+  db.all('SELECT id, name FROM departments', [], (err, rows) => {
+    console.log("Departments:");
+    rows.forEach(row => {
+      console.log(`ID: ${row.id}, Name: ${row.name}`);
+    });
+  });
+}
