@@ -141,3 +141,15 @@ function main() {
             });
           });
         });
+ break;
+      case '6':
+        rl.question("Enter the employee's first name: ", firstName => {
+          rl.question("Enter the employee's last name: ", lastName => {
+            rl.question("Enter the role id for the employee: ", roleId => {
+              rl.question("Enter the manager id for the employee (0 if no manager): ", managerId => {
+                addEmployee(db, firstName, lastName, parseInt(roleId), parseInt(managerId));
+                console.log("Employee added successfully!");
+              });
+            });
+          });
+        });
