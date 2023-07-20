@@ -104,3 +104,9 @@ function showMenu() {
   console.log("7. Update an employee role");
   console.log("8. Exit");
 }
+
+// Main function to handle user input and actions
+function main() {
+  const db = new sqlite3.Database('employee_database.db');
+
+  createTables(db);
