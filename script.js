@@ -153,3 +153,11 @@ function main() {
             });
           });
         });
+break;
+      case '7':
+        rl.question("Enter the id of the employee to update: ", employeeId => {
+          rl.question("Enter the new role id for the employee: ", newRoleId => {
+            updateEmployeeRole(db, parseInt(employeeId), parseInt(newRoleId));
+            console.log("Employee role updated successfully!");
+          });
+        });
