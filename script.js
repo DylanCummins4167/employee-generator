@@ -71,3 +71,8 @@ function viewAllEmployees(db) {
     });
   });
 }
+
+// Function to add a department
+function addDepartment(db, departmentName) {
+  db.run('INSERT INTO departments (name) VALUES (?)', [departmentName]);
+}
