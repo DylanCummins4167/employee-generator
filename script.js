@@ -161,3 +161,12 @@ break;
             console.log("Employee role updated successfully!");
           });
         });
+ break;
+      case '8':
+        rl.close();
+        db.close();
+        console.log("Exiting the application.");
+        break;
+      default:
+        console.log("Invalid option. Please try again.");
+    }
