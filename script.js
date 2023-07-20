@@ -55,3 +55,19 @@ function viewAllRoles(db) {
     });
   });
 }
+
+// Function to view all employees
+function viewAllEmployees(db) {
+  db.all(`
+    SELECT employees.id, first_name, last_name, title, departments.name AS department, salary, 
+    (SELECT CONCAT(manager.first_name, ' ', manager.last_name) FROM employees AS manager WHERE manager.id = employees.manager_id) AS manager
+    FROM employees
+    JOIN roles ON employees.role_id = roles.id
+    JOIN departments ON roles.department_id = departments.id
+  `, [], (err, rows) => {
+    console.log("Employees:");
+    rows.forEach(row => {
+      console.log(`ID: ${row.id}, Name: ${row.first_name} ${row.last_name}, Role: ${row.title}, Department: ${row.department}, Salary: ${row.salary}, Manager: ${row.manager}`);
+    });
+  });
+}
