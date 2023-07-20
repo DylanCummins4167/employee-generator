@@ -114,3 +114,21 @@ function main() {
     input: process.stdin,
     output: process.stdout
   });
+
+ rl.on('line', input => {
+    switch (input) {
+      case '1':
+        viewAllDepartments(db);
+        break;
+      case '2':
+        viewAllRoles(db);
+        break;
+      case '3':
+        viewAllEmployees(db);
+        break;
+      case '4':
+        rl.question("Enter the name of the department: ", departmentName => {
+          addDepartment(db, departmentName);
+          console.log("Department added successfully!");
+        });
+        break;
