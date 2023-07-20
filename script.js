@@ -91,3 +91,16 @@ function addEmployee(db, firstName, lastName, roleId, managerId) {
 function updateEmployeeRole(db, employeeId, newRoleId) {
   db.run('UPDATE employees SET role_id = ? WHERE id = ?', [newRoleId, employeeId]);
 }
+
+// Function to display the menu
+function showMenu() {
+  console.log("\nOptions:");
+  console.log("1. View all departments");
+  console.log("2. View all roles");
+  console.log("3. View all employees");
+  console.log("4. Add a department");
+  console.log("5. Add a role");
+  console.log("6. Add an employee");
+  console.log("7. Update an employee role");
+  console.log("8. Exit");
+}
