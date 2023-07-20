@@ -110,3 +110,7 @@ function main() {
   const db = new sqlite3.Database('employee_database.db');
 
   createTables(db);
+ const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
