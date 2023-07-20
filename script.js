@@ -9,3 +9,13 @@ function createTables(db) {
       name TEXT
     )
   `);
+
+ db.run(`
+    CREATE TABLE IF NOT EXISTS roles (
+      id INTEGER PRIMARY KEY,
+      title TEXT,
+      salary REAL,
+      department_id INTEGER,
+      FOREIGN KEY (department_id) REFERENCES departments(id)
+    )
+  `);
