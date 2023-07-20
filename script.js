@@ -19,3 +19,16 @@ function createTables(db) {
       FOREIGN KEY (department_id) REFERENCES departments(id)
     )
   `);
+
+  db.run(`
+    CREATE TABLE IF NOT EXISTS employees (
+      id INTEGER PRIMARY KEY,
+      first_name TEXT,
+      last_name TEXT,
+      role_id INTEGER,
+      manager_id INTEGER,
+      FOREIGN KEY (role_id) REFERENCES roles(id),
+      FOREIGN KEY (manager_id) REFERENCES employees(id)
+    )
+  `);
+}
