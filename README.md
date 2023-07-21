@@ -14,3 +14,4 @@ The Employee Management System is a command-line application that allows users t
 ## Installation
 1. Make sure you have Node.js and npm (Node Package Manager) installed on your system.
 2. Clone this repository to your local machine 
+![Screenshot 2023-07-20 231316](https://github.com/DylanCummins4167/employee-generator/assets/129929151/4335848f-0203-42bd-a023-4f2d6ac1e86b)
