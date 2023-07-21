@@ -178,3 +178,52 @@ break;
 }
 
 main();
+
+const sqlite3 = require('sqlite3').verbose();
+
+// Function to create tables if they don't exist
+function createTables(db) {
+  db.run(`
+    CREATE TABLE IF NOT EXISTS departments (
+      id INTEGER PRIMARY KEY,
+      name TEXT
+    )
+  `);
+
+  db.run(`
+    CREATE TABLE IF NOT EXISTS roles (
+      id INTEGER PRIMARY KEY,
+      title TEXT,
+      salary REAL,
+      department_id INTEGER,
+      FOREIGN KEY (department_id) REFERENCES departments(id)
+    )
+  `);
+
+  db.run(`
+    CREATE TABLE IF NOT EXISTS employees (
+      id INTEGER PRIMARY KEY,
+      first_name TEXT,
+      last_name TEXT,
+      role_id INTEGER,
+      manager_id INTEGER,
+      FOREIGN KEY (role_id) REFERENCES roles(id),
+      FOREIGN KEY (manager_id) REFERENCES employees(id)
+    )
+  `);
+}
+
+// Main function to handle user input and actions
+function main() {
+  const db = new sqlite3.Database('employee_database.db');
+
+  // Create the necessary tables in the database
+  createTables(db);
+
+  // The rest of your code (menu, user interactions, etc.) goes here
+
+  // Close the database connection when the program exits
+  db.close();
+}
+
+main();
