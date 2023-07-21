@@ -213,38 +213,4 @@ function createTables(db) {
   `);
 }
 
-// Main function to handle user input and actions
-function main() {
-  const db = new sqlite3.Database('employee_database.db');
 
-  // Create the necessary tables in the database
-  createTables(db);
-
-  // The rest of your code (menu, user interactions, etc.) goes here
-
-  // Close the database connection when the program exits
-  db.close();
-}
-
-main();
-const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('employee_database.db');
-
-function createTables() {
-  try {
-    db.run(`
-      CREATE TABLE IF NOT EXISTS departments (
-        id INTEGER PRIMARY KEY,
-        name TEXT
-      )
-    `);
-
-    // Other table creation queries...
-
-  } catch (err) {
-    console.error('Error creating tables:', err);
-  }
-}
-
-// Call the function to create tables
-createTables();
